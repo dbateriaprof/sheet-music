@@ -81,6 +81,22 @@ voiceOne = \drummode {
   sn16 sn sn sn-> sn sn sn sn-> sn sn sn sn-> sn sn sn sn | \bar "|."
 }
 
+\score {
+  \new DrumStaff { \voiceOne }
+  
+  \layout {
+    indent = 0\mm
+  }
+  
+  \midi {
+    \tempo 4 = 80
+    \context {
+      \Staff
+      \consists "Dynamic_performer" % Força o sintetizador a ler acentos e dinâmicas
+    }
+  }
+}
+
 \new DrumStaff { \voiceOne }
 \layout {
   indent = 0\mm % Remove o recuo da primeira linha para alinhar tudo
